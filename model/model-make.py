@@ -1,7 +1,7 @@
 import MeCab
 
 input = open('./base.txt', 'r', encoding='utf-8') 
-output = open('./model.txt', 'w', encoding='utf-8') 
+output = open('/model.txt', 'w', encoding='utf-8') 
 
 mecab = MeCab.Tagger("-Owakati")
 
