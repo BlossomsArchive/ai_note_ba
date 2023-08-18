@@ -17,6 +17,10 @@ jobs:
           python-version: '3.10'
       - name: Python Install
         run: |
+          sudo apt-get install -y mecab libmecab-dev mecab-ipadic-utf8
+          git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
+          ./bin/install-mecab-ipadic-neologd -n -y
+          echo dicdir = `mecab-config --dicdir`"/mecab-ipadic-neologd" > mecabrc && sudo cp mecabrc /usr/local/etc/
           python -m pip install --upgrade pip
           pip install mecab-python3
           pip install feedparser
