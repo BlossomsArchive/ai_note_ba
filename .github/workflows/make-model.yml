@@ -1,4 +1,4 @@
-name: make model.
+name: make model
 on:
   workflow_dispatch:
   pull_request:
