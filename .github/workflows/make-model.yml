@@ -7,7 +7,7 @@ on:
       - model/*
       
 jobs:
-  create model:
+  create_model:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
