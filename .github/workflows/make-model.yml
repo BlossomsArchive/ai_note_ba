@@ -23,8 +23,8 @@ jobs:
 
       - name: make
         run: |
-          python /model/model-make.py
-          cat /model/base.txt
+          python model/model-make.py
+          cat model/base.txt
           cat model.txt
 
       - name: Update File
