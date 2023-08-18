@@ -1,9 +1,6 @@
 name: make model
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - model/*
       
 jobs:
   create_model:
