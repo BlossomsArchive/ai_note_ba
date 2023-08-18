@@ -2,6 +2,7 @@ name: Regularly Note Post
 
 on:
   schedule:
+    workflow_dispatch:
     - cron: '*/10 * * * *'
 
 jobs:
