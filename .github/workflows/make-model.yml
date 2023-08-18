@@ -23,9 +23,9 @@ jobs:
 
       - name: make
         run: |
-          python model-make.py
-          cat base.txt
-          cat /model.txt
+          python /model/model-make.py
+          cat /model/base.txt
+          cat model.txt
 
       - name: Update File
         run: |
