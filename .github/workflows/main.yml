@@ -1,4 +1,4 @@
-name: Regularly Note Post
+name: Test Regularly Note Post
 
 on:
   workflow_dispatch:
