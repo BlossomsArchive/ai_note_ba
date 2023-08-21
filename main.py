@@ -1,18 +1,20 @@
-import torch
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import markovify
+import os
+from misskey import Misskey
 
-# モデルとトークナイザの読み込み
-model_name = "rinna/japanese-gpt2-medium"
-model = GPT2LMHeadModel.from_pretrained(model_name)
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+input = open('./model.txt', 'r', encoding='utf-8')
+model = markovify.NewlineText(input.read())
+sentence = model.make_sentence()
 
-# モデルをCPUに転送
-device = torch.device("cpu")
-model.to(device)
+note_text = sentence.replace(" ","")
+print(note_text)
 
-# ランダムな文章生成
-output = model.generate(max_length=100, num_return_sequences=1, no_repeat_ngram_size=2, top_k=50, top_p=0.95)
+#SNS投稿API
+# Misskey
+misskey_address = os.environ.get("MISSKEY_SERVER_ADDRESS")
+misskey_token = os.environ.get("MISSKEY_TOKEN")
+api = Misskey(misskey_address)
+api.token = misskey_token
+api.notes_create(text=note_text)
 
-# 生成された文章をデコードして出力
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print(generated_text)
+input.close()
