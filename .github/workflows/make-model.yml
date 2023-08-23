@@ -1,6 +1,9 @@
 name: make model
 on:
   workflow_dispatch:
+  push:
+    paths:
+      -'model/base.txt'
       
 jobs:
   create_model:
