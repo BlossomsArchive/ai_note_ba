@@ -26,7 +26,6 @@ print(5)
 while True:
     try:
         api.notes_create(text=note_text)
-print(6)
     except:
         time.sleep(300)
     else:
