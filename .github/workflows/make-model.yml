@@ -24,9 +24,35 @@ jobs:
       - name: make
         run: |
           python model/model-make.py
-          cat model/
-          cat ./
-
+          cat model/base_1.txt
+          cat model/base_2.txt
+          cat model/base_3.txt
+          cat model/base_4.txt
+          cat model/base_5.txt
+          cat model/base_6.txt
+          cat model/base_7.txt
+          cat model/base_8.txt
+          cat model/base_9.txt
+          cat model/base_10.txt
+          cat model/base_11.txt
+          cat model/base_12.txt
+          cat model/base_13.txt
+          cat model/base_14.txt
+          cat ./model_1.txt
+          cat ./model_2.txt
+          cat ./model_3.txt
+          cat ./model_4.txt
+          cat ./model_5.txt
+          cat ./model_6.txt
+          cat ./model_7.txt
+          cat ./model_8.txt
+          cat ./model_9.txt
+          cat ./model_10.txt
+          cat ./model_11.txt
+          cat ./model_12.txt
+          cat ./model_13.txt
+          cat ./model_14.txt
+          
       - name: Update File
         run: |
           if ! git diff --exit-code --quiet
