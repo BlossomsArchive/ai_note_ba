@@ -3,7 +3,7 @@ import os
 from misskey import Misskey
 import time
 
-input = open('./model_1.txt', 'r', encoding='utf-8')
+input = open('./model.txt', 'r', encoding='utf-8')
 model = markovify.NewlineText(input.read())
 sentence = model.make_sentence()
 
