@@ -2,7 +2,7 @@ name: make model
 on:
   push:
     paths:
-      - 'model/base.txt'
+      - 'model/'
   workflow_dispatch:
       
 jobs:
