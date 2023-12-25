@@ -1,6 +1,7 @@
 import markovify
 import os
 from misskey import Misskey
+from atproto import Client, models
 import time
 
 input = open('./model.txt', 'r', encoding='utf-8')
@@ -20,6 +21,17 @@ while True:
         api.token = misskey_token
         input.close()
         api.notes_create(text=note_text)
+    except:
+        time.sleep(300)
+    else:
+        break
+
+while True:
+    try:
+        # Bluesky
+        bluesky = Client()
+        bluesky.login(str(os.environ.get("BLUESKY_MAIL_ADDRESS")),str(os.environ.get("BLUESKY_PASSWORD")))
+        bluesky.send_post(note_text)
     except:
         time.sleep(300)
     else:
