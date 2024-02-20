@@ -3,7 +3,7 @@ name: Regularly Note Post
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/30 * * * *'
 
 jobs:
   Send_Note:
