@@ -19,7 +19,7 @@ while True:
         misskey_token = os.environ.get("MISSKEY_TOKEN")
         api = Misskey(misskey_address,misskey_token)
         input.close()
-        api.notes_create(text=note_text)
+        api.notes_create(text=note_text,visibility='home')
     except:
         time.sleep(300)
     else:
