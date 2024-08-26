@@ -4,10 +4,11 @@ import os
 
 dir = "model/"
 file_count = sum(os.path.isfile(os.path.join(dir, name)) for name in os.listdir(dir))
+file_count = file_count -1
 
 output = ""
 
-for i in range(1, file_count):
+for i in range(1, file_count-1):
     file_path = os.path.join(dir, 'base_{}.txt'.format(i))
 
     with open(file_path, 'r', encoding='utf-8') as file:
