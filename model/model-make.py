@@ -10,7 +10,8 @@ output = ""
 
 for i in range(1, file_count-1):
     file_path = os.path.join(dir, 'base_{}.txt'.format(i))
-
+    print(i)
+    
     with open(file_path, 'r', encoding='utf-8') as file:
         mecab = MeCab.Tagger("-Owakati")
         for line in file:
