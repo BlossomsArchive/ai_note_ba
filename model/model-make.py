@@ -17,7 +17,7 @@ for i in range (1,file_count):
 		output += splittedLine
 		output += '\n'
 
-input.close()
+	input.close()
 
 with gzip.open("/model.gz'", "wt", encoding="utf-8") as f:
 	f.write(output)
