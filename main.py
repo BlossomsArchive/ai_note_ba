@@ -6,7 +6,7 @@ import time
 
 input = open('./model.txt', 'r', encoding='utf-8')
 model = markovify.NewlineText(input.read())
-sentence = model.make_sentence()
+sentence = model.make_short_sentence()
 
 note_text = sentence.replace(" ","")
 print(note_text)
