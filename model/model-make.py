@@ -3,21 +3,19 @@ import gzip
 import os
 
 dir = "model/"
-file_count = sum(os.path.isfile(os.path.join(dir,name)) for name in os.listdir(dir))
+file_count = sum(os.path.isfile(os.path.join(dir, name)) for name in os.listdir(dir))
 
-for i in range (1,file_count):
-	input = open('model/base_{}.txt'.format(i), 'r', encoding='utf-8')
+output = ""
 
-	mecab = MeCab.Tagger("-Owakati")
+for i in range(1, file_count + 1):  # 最後のファイルも含めるように修正
+    file_path = os.path.join(dir, 'base_{}.txt'.format(i))
 
-	output=""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        mecab = MeCab.Tagger("-Owakati")
+        for line in file:
+            splittedLine = ' '.join(mecab.parse(line).split())
+            output += splittedLine
+            output += '\n'
 
-	for line in input.read().split('\n'):
-		splittedLine = ' '.join(mecab.parse(line).split())
-		output += splittedLine
-		output += '\n'
-
-	input.close()
-
-with gzip.open("/model.gz'", "wt", encoding="utf-8") as f:
-	f.write(output)
+with gzip.open("model.gz", "wt", encoding="utf-8") as f:  # ファイルパスを修正
+    f.write(output)
