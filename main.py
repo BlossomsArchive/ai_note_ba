@@ -24,14 +24,3 @@ while True:
         time.sleep(300)
     else:
         break
-
-while True:
-    try:
-        # Bluesky
-        bluesky = Client()
-        bluesky.login(str(os.environ.get("BLUESKY_MAIL_ADDRESS")),str(os.environ.get("BLUESKY_PASSWORD")))
-        bluesky.send_post(note_text)
-    except:
-        time.sleep(300)
-    else:
-        break
